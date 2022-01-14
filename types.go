@@ -149,22 +149,22 @@ const (
 // https://docs.cron-job.org/rest-api.html#jobschedule
 type Schedule struct {
 	// Schedule time zone (see here for a list of supported values)
-	Timezone string `json:"timezone,omitempty"`
+	Timezone string `json:"timezone"`
 
 	// Hours in which to execute the job (0-23; [-1] = every hour)
-	Hours []int `json:"hours,omitempty"`
+	Hours []int `json:"hours"`
 
 	// Days of month in which to execute the job (1-31; [-1] = every day of month)
-	Mdays []int `json:"mdays,omitempty"`
+	Mdays []int `json:"mdays"`
 
 	// Minutes in which to execute the job (0-59; [-1] = every minute)
-	Minutes []int `json:"minutes,omitempty"`
+	Minutes []int `json:"minutes"`
 
 	// Months in which to execute the job (1-12; [-1] = every month)
-	Month []int `json:"months,omitempty"`
+	Month []int `json:"months"`
 
 	// Days of week in which to execute the job (0-6; [-1] = every day of week)
-	WDays []int `json:"wdays,omitempty"`
+	WDays []int `json:"wdays"`
 }
 
 // MarshalJSON implements the json.Marshaler interface
@@ -173,19 +173,19 @@ func (s Schedule) MarshalJSON() ([]byte, error) {
 		s.Timezone = "Europe/Paris"
 	}
 	if len(s.Hours) == 0 {
-		s.Hours = []int{-1}
+		s.Hours = []int{0}
 	}
 	if len(s.Mdays) == 0 {
-		s.Mdays = []int{-1}
+		s.Mdays = []int{0}
 	}
 	if len(s.Minutes) == 0 {
-		s.Minutes = []int{-1}
+		s.Minutes = []int{0}
 	}
 	if len(s.Month) == 0 {
-		s.Month = []int{-1}
+		s.Month = []int{0}
 	}
 	if len(s.WDays) == 0 {
-		s.WDays = []int{-1}
+		s.WDays = []int{0}
 	}
 	type alias Schedule
 
