@@ -12,12 +12,10 @@ func main() {
 
 	jobID, err := c.CreateJob(cronjoborg.DetailedJob{
 		Job: cronjoborg.Job{
-			URL:     "https://example.com",
-			Title:   "Test Job",
-			Enabled: true,
-			Schedule: cronjoborg.Schedule{
-				Minutes: []int{-1}, // Every minute
-			},
+			URL:            "https://httpbin.org/get?test=cronjob.org",
+			Title:          "Test Job",
+			Enabled:        false,
+			Schedule:       cronjoborg.Schedule{}, // Default is * * * * * which is every minute
 			RequestTimeout: 10,
 			SaveResponses:  true,
 			RequestMethod:  cronjoborg.RequestMethodGet,

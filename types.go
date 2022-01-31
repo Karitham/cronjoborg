@@ -173,22 +173,22 @@ func (s Schedule) MarshalJSON() ([]byte, error) {
 		s.Timezone = "Europe/Paris"
 	}
 	if len(s.Hours) == 0 {
-		s.Hours = []int{0}
+		s.Hours = []int{-1}
 	}
 	if len(s.Mdays) == 0 {
-		s.Mdays = []int{0}
+		s.Mdays = []int{-1}
 	}
 	if len(s.Minutes) == 0 {
-		s.Minutes = []int{0}
+		s.Minutes = []int{-1}
 	}
 	if len(s.Month) == 0 {
-		s.Month = []int{0}
+		s.Month = []int{-1}
 	}
 	if len(s.WDays) == 0 {
-		s.WDays = []int{0}
+		s.WDays = []int{-1}
 	}
-	type alias Schedule
 
+	type alias Schedule
 	return json.Marshal(alias(s))
 }
 
